@@ -388,7 +388,9 @@ uis.controller('uiSelectCtrl',
         ctrl.clickTriggeredSelect = false;
         if($event && ($event.type === 'click' || $event.type === 'touchend') && item){
           ctrl.clickTriggeredSelect = true;
-          item = item.replace(ctrl.taggingLabel,'').trim();
+          if(typeof(item) === 'string'){
+            item = item.replace(ctrl.taggingLabel,'').trim();
+          }
         }
 
         if(ctrl.tagging.isActivated && ctrl.clickTriggeredSelect === false) {
